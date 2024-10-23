@@ -1,0 +1,15 @@
+/Users/mrzykg/Documents/GitHub/Sklep/Sklep/bin/Debug/net8.0/Sklep
+/Users/mrzykg/Documents/GitHub/Sklep/Sklep/bin/Debug/net8.0/Sklep.deps.json
+/Users/mrzykg/Documents/GitHub/Sklep/Sklep/bin/Debug/net8.0/Sklep.runtimeconfig.json
+/Users/mrzykg/Documents/GitHub/Sklep/Sklep/bin/Debug/net8.0/Sklep.dll
+/Users/mrzykg/Documents/GitHub/Sklep/Sklep/bin/Debug/net8.0/Sklep.pdb
+/Users/mrzykg/Documents/GitHub/Sklep/Sklep/obj/Debug/net8.0/Sklep.GeneratedMSBuildEditorConfig.editorconfig
+/Users/mrzykg/Documents/GitHub/Sklep/Sklep/obj/Debug/net8.0/Sklep.AssemblyInfoInputs.cache
+/Users/mrzykg/Documents/GitHub/Sklep/Sklep/obj/Debug/net8.0/Sklep.AssemblyInfo.cs
+/Users/mrzykg/Documents/GitHub/Sklep/Sklep/obj/Debug/net8.0/Sklep.csproj.CoreCompileInputs.cache
+/Users/mrzykg/Documents/GitHub/Sklep/Sklep/obj/Debug/net8.0/Sklep.sourcelink.json
+/Users/mrzykg/Documents/GitHub/Sklep/Sklep/obj/Debug/net8.0/Sklep.dll
+/Users/mrzykg/Documents/GitHub/Sklep/Sklep/obj/Debug/net8.0/refint/Sklep.dll
+/Users/mrzykg/Documents/GitHub/Sklep/Sklep/obj/Debug/net8.0/Sklep.pdb
+/Users/mrzykg/Documents/GitHub/Sklep/Sklep/obj/Debug/net8.0/Sklep.genruntimeconfig.cache
+/Users/mrzykg/Documents/GitHub/Sklep/Sklep/obj/Debug/net8.0/ref/Sklep.dll
