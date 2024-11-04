@@ -52,7 +52,55 @@ class Program
 
     static void ZarzadzajProduktami()
     {
-        Console.WriteLine("=== Zarządzanie Produktami ===");
+        Console.Clear();
+        Console.WriteLine("===== Zarządzanie Produktami =====");
+        Console.WriteLine("1. Dodaj produkt");
+        Console.WriteLine("2. Wyświetl listę produktów");
+        Console.WriteLine("3. Usuń produkt");
+        Console.WriteLine("4. Powrót do głównego menu");
+        Console.Write("Wybierz opcję: ");
+
+        string wybor = Console.ReadLine();
+
+        switch (wybor)
+        {
+            case "1":
+                DodajProdukt();
+                break;
+            case "2":
+                WyswietlProdukty();
+                break;
+            case "3":
+                UsunProdukt();
+                break;
+            case "4":
+                return;
+            default:
+                Console.WriteLine("Nieprawidłowy wybór, spróbuj ponownie.");
+                break;
+        }
+
+        Console.WriteLine("\nNaciśnij dowolny klawisz, aby wrócić do menu produktów...");
+        Console.ReadKey();
+
+    }
+
+    static void DodajProdukt()
+    {
+        Console.WriteLine("=== Dodawanie Produktu ===");
+
+    }
+
+    static void WyswietlProdukty()
+    {
+        Console.WriteLine("=== Lista Produktów ===");
+
+    }
+
+    
+    static void UsunProdukt()
+    {
+        Console.WriteLine("=== Usuwanie Produktu ===");
 
     }
 
