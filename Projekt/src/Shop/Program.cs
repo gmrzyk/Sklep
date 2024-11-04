@@ -84,6 +84,7 @@ class Program
         Console.ReadKey();
 
     }
+    
 
     static void DodajProdukt()
     {
@@ -107,10 +108,56 @@ class Program
 
     static void ZarzadzajKlientami()
     {
-        Console.WriteLine("=== Zarządzanie Klientami ===");
-        
+        Console.Clear();
+        Console.WriteLine("===== Zarządzanie Klientami =====");
+        Console.WriteLine("1. Dodaj klienta");
+        Console.WriteLine("2. Wyświetl listę klientów");
+        Console.WriteLine("3. Usuń klienta");
+        Console.WriteLine("4. Powrót do głównego menu");
+        Console.Write("Wybierz opcję: ");
+
+        string wybor = Console.ReadLine();
+
+        switch (wybor)
+        {
+            case "1":
+                DodajKlienta();
+                break;
+            case "2":
+                WyswietlKlientow();
+                break;
+            case "3":
+               UsunKlienta();
+                break;
+            case "4":
+                return;
+            default:
+                Console.WriteLine("Nieprawidłowy wybór, spróbuj ponownie.");
+                break;
+        }
+
+        Console.WriteLine("\nNaciśnij dowolny klawisz, aby wrócić do menu klientów...");
+        Console.ReadKey();
+
     }
 
+    static void DodajKlienta()
+        {
+            Console.WriteLine("=== Dodawanie Klienta ===");
+
+        }
+
+        static void WyswietlKlientow()
+        {
+            Console.WriteLine("=== Lista Klientów ===");
+
+        }
+
+        static void UsunKlienta()
+        {
+            Console.WriteLine("=== Usuwanie Klienta ===");
+
+        }
     
     static void UtworzNowaSprzedaz()
     {
