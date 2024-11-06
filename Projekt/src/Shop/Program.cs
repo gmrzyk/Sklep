@@ -13,7 +13,8 @@ class Program
             Console.WriteLine("2. Zarządzaj klientami");
             Console.WriteLine("3. Utwórz nową sprzedaż");
             Console.WriteLine("4. Wyświetl raporty sprzedaży");
-            Console.WriteLine("5. Wyjdź");
+            Console.WriteLine("5. Zrealizuj platność");
+            Console.WriteLine("6. Wyjdź");
             Console.Write("Wybierz opcję: ");
 
             string wybor = Console.ReadLine();
@@ -33,6 +34,9 @@ class Program
                     WyswietlRaportySprzedazy();
                     break;
                 case "5":
+                    Platnosc();
+                    break;
+                case "6":
                     wyjscie = true;
                     Console.WriteLine("Zakończenie programu... Dziękujemy za korzystanie z Systemu Sprzedaży!");
                     break;
@@ -155,5 +159,10 @@ class Program
     static void WyswietlRaportySprzedazy()
     {
         Console.WriteLine("=== Raporty Sprzedaży ===");
+    }
+
+    static void Platnosc()
+    {
+        System.Console.WriteLine("=== Dodaj Płatność ===");
     }
 }
