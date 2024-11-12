@@ -3,8 +3,11 @@
     "",
     "\\Projekt",
     "\\Projekt\\src",
-    "\\Projekt\\src\\Shop"
+    "\\Projekt\\src\\Shop",
+    "\\Projekt\\src\\Shop\\bin",
+    "\\Projekt\\src\\Shop\\bin\\Debug",
+    "\\Projekt\\src\\Shop\\bin\\Debug\\net8.0"
   ],
-  "SelectedNode": "\\Projekt\\src\\Shop\\Program.cs",
+  "SelectedNode": "\\Projekt\\src\\Shop\\bin\\Debug\\net8.0\\klienci.json",
   "PreviewInSolutionExplorer": false
 }

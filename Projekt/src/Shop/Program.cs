@@ -1,11 +1,18 @@
-﻿
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text.Json;
+
 class Program
 {
+    private static string productFile = "produkty.json";
+    private static string customerFile = "klienci.json";
+
     private static void Main(string[] args)
     {
-        bool wyjscie = false;
+        bool exit = false;
 
-        while (!wyjscie)
+        while (!exit)
         {
             Console.Clear();
             Console.WriteLine("===== Menu Sprzedaży =====");
@@ -17,41 +24,42 @@ class Program
             Console.WriteLine("6. Wyjdź");
             Console.Write("Wybierz opcję: ");
 
-            string wybor = Console.ReadLine();
+            string choice = Console.ReadLine();
 
-            switch (wybor)
+            switch (choice)
             {
                 case "1":
-                    ZarzadzajProduktami();
+                    ManageProducts();
                     break;
                 case "2":
-                    ZarzadzajKlientami();
+                    ManageCustomers();
                     break;
                 case "3":
-                    UtworzNowaSprzedaz();
+                    CreateNewSale();
                     break;
                 case "4":
-                    WyswietlRaportySprzedazy();
+                    DisplaySalesReports();
                     break;
                 case "5":
-                    Platnosc();
+                    ProcessPayment();
                     break;
                 case "6":
-                    wyjscie = true;
+                    exit = true;
                     Console.WriteLine("Zakończenie programu... Dziękujemy za korzystanie z Systemu Sprzedaży!");
                     break;
                 default:
                     Console.WriteLine("Nieprawidłowy wybór, spróbuj ponownie.");
+                    Console.ReadKey();
                     break;
             }
         }
     }
 
-    static void ZarzadzajProduktami()
+    static void ManageProducts()
     {
-        bool powrotDoMenu = false;
+        bool returnToMenu = false;
 
-        while (!powrotDoMenu)
+        while (!returnToMenu)
         {
             Console.Clear();
             Console.WriteLine("===== Zarządzanie Produktami =====");
@@ -61,49 +69,81 @@ class Program
             Console.WriteLine("4. Powrót do głównego menu");
             Console.Write("Wybierz opcję: ");
 
-            string wybor = Console.ReadLine();
+            string choice = Console.ReadLine();
 
-            switch (wybor)
+            switch (choice)
             {
                 case "1":
-                    DodajProdukt();
+                    AddProduct();
                     break;
                 case "2":
-                    WyswietlProdukty();
+                    DisplayProducts();
                     break;
                 case "3":
-                    UsunProdukt();
+                    RemoveProduct();
                     break;
                 case "4":
-                    powrotDoMenu = true;
+                    returnToMenu = true;
                     break;
                 default:
                     Console.WriteLine("Nieprawidłowy wybór, spróbuj ponownie.");
+                    Console.ReadKey();
                     break;
             }
         }
     }
 
-    static void DodajProdukt()
+    static void AddProduct()
     {
         Console.WriteLine("=== Dodawanie Produktu ===");
+        Console.Write("Nazwa produktu: ");
+        string name = Console.ReadLine();
+        Console.Write("Cena produktu: ");
+        decimal price = decimal.Parse(Console.ReadLine());
+
+        List<Product> products = LoadProducts();
+        products.Add(new Product { Name = name, Price = price });
+        SaveProducts(products);
+
+        Console.WriteLine("Produkt został dodany.");
+        Console.WriteLine("Naciśnij dowolny klawisz, aby kontynuować...");
+        Console.ReadKey();
     }
 
-    static void WyswietlProdukty()
+    static void DisplayProducts()
     {
         Console.WriteLine("=== Lista Produktów ===");
+        List<Product> products = LoadProducts();
+
+        foreach (var product in products)
+        {
+            Console.WriteLine($"- {product.Name}: {product.Price:C}");
+        }
+
+        Console.WriteLine("Naciśnij dowolny klawisz, aby kontynuować...");
+        Console.ReadKey();
     }
 
-    static void UsunProdukt()
+    static void RemoveProduct()
     {
         Console.WriteLine("=== Usuwanie Produktu ===");
+        Console.Write("Podaj nazwę produktu do usunięcia: ");
+        string name = Console.ReadLine();
+
+        List<Product> products = LoadProducts();
+        products.RemoveAll(p => p.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
+        SaveProducts(products);
+
+        Console.WriteLine("Produkt został usunięty.");
+        Console.WriteLine("Naciśnij dowolny klawisz, aby kontynuować...");
+        Console.ReadKey();
     }
 
-    static void ZarzadzajKlientami()
+    static void ManageCustomers()
     {
-        bool powrotDoMenu = false;
+        bool returnToMenu = false;
 
-        while (!powrotDoMenu)
+        while (!returnToMenu)
         {
             Console.Clear();
             Console.WriteLine("===== Zarządzanie Klientami =====");
@@ -113,56 +153,130 @@ class Program
             Console.WriteLine("4. Powrót do głównego menu");
             Console.Write("Wybierz opcję: ");
 
-            string wybor = Console.ReadLine();
+            string choice = Console.ReadLine();
 
-            switch (wybor)
+            switch (choice)
             {
                 case "1":
-                    DodajKlienta();
+                    AddCustomer();
                     break;
                 case "2":
-                    WyswietlKlientow();
+                    DisplayCustomers();
                     break;
                 case "3":
-                    UsunKlienta();
+                    RemoveCustomer();
                     break;
                 case "4":
-                    powrotDoMenu = true;
+                    returnToMenu = true;
                     break;
                 default:
                     Console.WriteLine("Nieprawidłowy wybór, spróbuj ponownie.");
+                    Console.ReadKey();
                     break;
             }
         }
     }
 
-    static void DodajKlienta()
+    static void AddCustomer()
     {
         Console.WriteLine("=== Dodawanie Klienta ===");
+        Console.Write("Imię klienta: ");
+        string firstName = Console.ReadLine();
+        Console.Write("Nazwisko klienta: ");
+        string lastName = Console.ReadLine();
+
+        List<Customer> customers = LoadCustomers();
+        customers.Add(new Customer { FirstName = firstName, LastName = lastName });
+        SaveCustomers(customers);
+
+        Console.WriteLine("Klient został dodany.");
+        Console.WriteLine("Naciśnij dowolny klawisz, aby kontynuować...");
+        Console.ReadKey();
     }
 
-    static void WyswietlKlientow()
+    static void DisplayCustomers()
     {
         Console.WriteLine("=== Lista Klientów ===");
+        List<Customer> customers = LoadCustomers();
+
+        foreach (var customer in customers)
+        {
+            Console.WriteLine($"- {customer.FirstName} {customer.LastName}");
+        }
+
+        Console.WriteLine("Naciśnij dowolny klawisz, aby kontynuować...");
+        Console.ReadKey();
     }
 
-    static void UsunKlienta()
+    static void RemoveCustomer()
     {
         Console.WriteLine("=== Usuwanie Klienta ===");
+        Console.Write("Podaj imię klienta do usunięcia: ");
+        string firstName = Console.ReadLine();
+
+        List<Customer> customers = LoadCustomers();
+        customers.RemoveAll(c => c.FirstName.Equals(firstName, StringComparison.OrdinalIgnoreCase));
+        SaveCustomers(customers);
+
+        Console.WriteLine("Klient został usunięty.");
+        Console.WriteLine("Naciśnij dowolny klawisz, aby kontynuować...");
+        Console.ReadKey();
     }
 
-    static void UtworzNowaSprzedaz()
+    static void CreateNewSale()
     {
         Console.WriteLine("=== Tworzenie Nowej Sprzedaży ===");
+        Console.WriteLine("Naciśnij dowolny klawisz, aby kontynuować...");
+        Console.ReadKey();
     }
 
-    static void WyswietlRaportySprzedazy()
+    static void DisplaySalesReports()
     {
         Console.WriteLine("=== Raporty Sprzedaży ===");
+        Console.WriteLine("Naciśnij dowolny klawisz, aby kontynuować...");
+        Console.ReadKey();
     }
 
-    static void Platnosc()
+    static void ProcessPayment()
     {
-        System.Console.WriteLine("=== Dodaj Płatność ===");
+        Console.WriteLine("=== Dodaj Płatność ===");
+        Console.WriteLine("Naciśnij dowolny klawisz, aby kontynuować...");
+        Console.ReadKey();
+    }
+
+    class Product
+    {
+        public string Name { get; set; }
+        public decimal Price { get; set; }
+    }
+
+    class Customer
+    {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+    }
+
+    static List<Product> LoadProducts()
+    {
+        if (File.Exists(productFile))
+            return JsonSerializer.Deserialize<List<Product>>(File.ReadAllText(productFile));
+        return new List<Product>();
+    }
+
+    static void SaveProducts(List<Product> products)
+    {
+        File.WriteAllText(productFile, JsonSerializer.Serialize(products));
+    }
+
+    static List<Customer> LoadCustomers()
+    {
+        if (File.Exists(customerFile))
+            return JsonSerializer.Deserialize<List<Customer>>(File.ReadAllText(customerFile));
+        return new List<Customer>();
+    }
+
+    static void SaveCustomers(List<Customer> customers)
+    {
+        File.WriteAllText(customerFile, JsonSerializer.Serialize(customers));
     }
 }
