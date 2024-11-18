@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Grzegorz\\RiderProjects\\sales system project\\src\\sales system\\sales system.csproj": {}
+    "E:\\GitHub\\Sklep\\sales system project\\src\\sales system\\sales system.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Grzegorz\\RiderProjects\\sales system project\\src\\sales system\\sales system.csproj": {
+    "E:\\GitHub\\Sklep\\sales system project\\src\\sales system\\sales system.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Grzegorz\\RiderProjects\\sales system project\\src\\sales system\\sales system.csproj",
+        "projectUniqueName": "E:\\GitHub\\Sklep\\sales system project\\src\\sales system\\sales system.csproj",
         "projectName": "sales system",
-        "projectPath": "C:\\Users\\Grzegorz\\RiderProjects\\sales system project\\src\\sales system\\sales system.csproj",
+        "projectPath": "E:\\GitHub\\Sklep\\sales system project\\src\\sales system\\sales system.csproj",
         "packagesPath": "C:\\Users\\Grzegorz\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Grzegorz\\RiderProjects\\sales system project\\src\\sales system\\obj\\",
+        "outputPath": "E:\\GitHub\\Sklep\\sales system project\\src\\sales system\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "X:\\Microsoft Visual Studio\\Shared\\NuGetPackages"
