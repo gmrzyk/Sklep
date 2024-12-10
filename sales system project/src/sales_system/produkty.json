@@ -5,7 +5,7 @@
     "Price": 2500,
     "Category": "Laptopy",
     "Description": "brak",
-    "Stock": 4
+    "Stock": 3
   },
   {
     "Id": 2,
@@ -13,7 +13,7 @@
     "Price": 1000,
     "Category": "Telefony",
     "Description": "brak",
-    "Stock": 15
+    "Stock": 13
   },
   {
     "Id": 3,
