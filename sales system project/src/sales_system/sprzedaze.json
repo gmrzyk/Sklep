@@ -1,0 +1,40 @@
+[
+  {
+    "Id": 1,
+    "CustomerId": 2,
+    "CustomerName": "Jan Kowalski",
+    "Items": [
+      {
+        "ProductId": 4,
+        "ProductName": "PS5",
+        "UnitPrice": 2350,
+        "Quantity": 1
+      },
+      {
+        "ProductId": 3,
+        "ProductName": "Monitor",
+        "UnitPrice": 1500,
+        "Quantity": 1
+      }
+    ],
+    "TotalAmount": 3850,
+    "IsPaid": true,
+    "Date": "2024-12-10T17:40:53.9843084+01:00"
+  },
+  {
+    "Id": 2,
+    "CustomerId": 2,
+    "CustomerName": "Jan Kowalski",
+    "Items": [
+      {
+        "ProductId": 1,
+        "ProductName": "Laptop",
+        "UnitPrice": 2500,
+        "Quantity": 1
+      }
+    ],
+    "TotalAmount": 2500,
+    "IsPaid": true,
+    "Date": "2024-12-10T18:41:55.2671297+01:00"
+  }
+]

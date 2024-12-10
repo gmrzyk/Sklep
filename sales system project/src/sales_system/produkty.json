@@ -1,0 +1,34 @@
+[
+  {
+    "Id": 1,
+    "Name": "Laptop",
+    "Price": 2500,
+    "Category": "Laptopy",
+    "Description": "brak",
+    "Stock": 4
+  },
+  {
+    "Id": 2,
+    "Name": "Telefon",
+    "Price": 1000,
+    "Category": "Telefony",
+    "Description": "brak",
+    "Stock": 15
+  },
+  {
+    "Id": 3,
+    "Name": "Monitor",
+    "Price": 1500,
+    "Category": "Monitory",
+    "Description": "brak",
+    "Stock": 7
+  },
+  {
+    "Id": 4,
+    "Name": "PS5",
+    "Price": 2350,
+    "Category": "Konsole",
+    "Description": "brak",
+    "Stock": 11
+  }
+]

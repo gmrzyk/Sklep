@@ -1,0 +1,15 @@
+E:\GitHub\Sklep\sales system project\src\sales_system\bin\Debug\net8.0\sales_system.exe
+E:\GitHub\Sklep\sales system project\src\sales_system\bin\Debug\net8.0\sales_system.deps.json
+E:\GitHub\Sklep\sales system project\src\sales_system\bin\Debug\net8.0\sales_system.runtimeconfig.json
+E:\GitHub\Sklep\sales system project\src\sales_system\bin\Debug\net8.0\sales_system.dll
+E:\GitHub\Sklep\sales system project\src\sales_system\bin\Debug\net8.0\sales_system.pdb
+E:\GitHub\Sklep\sales system project\src\sales_system\obj\Debug\net8.0\sales_system.GeneratedMSBuildEditorConfig.editorconfig
+E:\GitHub\Sklep\sales system project\src\sales_system\obj\Debug\net8.0\sales_system.AssemblyInfoInputs.cache
+E:\GitHub\Sklep\sales system project\src\sales_system\obj\Debug\net8.0\sales_system.AssemblyInfo.cs
+E:\GitHub\Sklep\sales system project\src\sales_system\obj\Debug\net8.0\sales_system.csproj.CoreCompileInputs.cache
+E:\GitHub\Sklep\sales system project\src\sales_system\obj\Debug\net8.0\sales_system.sourcelink.json
+E:\GitHub\Sklep\sales system project\src\sales_system\obj\Debug\net8.0\sales_system.dll
+E:\GitHub\Sklep\sales system project\src\sales_system\obj\Debug\net8.0\refint\sales_system.dll
+E:\GitHub\Sklep\sales system project\src\sales_system\obj\Debug\net8.0\sales_system.pdb
+E:\GitHub\Sklep\sales system project\src\sales_system\obj\Debug\net8.0\sales_system.genruntimeconfig.cache
+E:\GitHub\Sklep\sales system project\src\sales_system\obj\Debug\net8.0\ref\sales_system.dll
