@@ -95,13 +95,20 @@ namespace sales_system.Services
             Console.WriteLine("=== Lista Klientów ===");
             List<Customer> customers = LoadCustomers();
 
-            Console.WriteLine("{0,-5} {1,-15} {2,-15} {3,-15} {4,-25} {5,-30}", "ID", "Imię", "Nazwisko", "Telefon",
-                "E-mail", "Adres");
-            Console.WriteLine(new string('-', 100));
+            Console.WriteLine("{0,-5} {1,-15} {2,-15} {3,-15} {4,-25} {5,-30} {6,-15}", 
+                "ID", "Imię", "Nazwisko", "Telefon", "E-mail", "Adres", "Limit");
+            Console.WriteLine(new string('-', 130));
+
             foreach (var customer in customers)
             {
-                Console.WriteLine("{0,-5} {1,-15} {2,-15} {3,-15} {4,-25} {5,-30}", customer.Id, customer.FirstName,
-                    customer.LastName, customer.PhoneNumber, customer.Email, customer.Address);
+                Console.WriteLine("{0,-5} {1,-15} {2,-15} {3,-15} {4,-25} {5,-30} {6,-15:C}", 
+                    customer.Id, 
+                    customer.FirstName, 
+                    customer.LastName, 
+                    customer.PhoneNumber ?? "Brak", 
+                    customer.Email ?? "Brak", 
+                    customer.Address ?? "Brak", 
+                    customer.UnpaidLimit);
             }
 
             Console.WriteLine();
