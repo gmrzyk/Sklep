@@ -23,7 +23,8 @@ namespace sales_system.Services
                 Console.WriteLine("1. Dodaj klienta");
                 Console.WriteLine("2. Wyświetl listę klientów");
                 Console.WriteLine("3. Usuń klienta");
-                Console.WriteLine("4. Powrót do głównego menu");
+                Console.WriteLine("4. Ustaw limit na nieopłacone kwoty");
+                Console.WriteLine("5. Powrót do głównego menu");
                 Console.Write("Wybierz opcję: ");
 
                 string? choice = Console.ReadLine();
@@ -40,6 +41,9 @@ namespace sales_system.Services
                         RemoveCustomer();
                         break;
                     case "4":
+                        SetUnpaidLimit();
+                        break;
+                    case "5":
                         returnToMenu = true;
                         break;
                     default:
@@ -142,7 +146,66 @@ namespace sales_system.Services
             Console.WriteLine(removed > 0 ? "Klient został usunięty." : "Nie znaleziono klienta o podanym ID.");
             Console.ReadKey();
         }
+        
+        public void SetUnpaidLimit()
+        {
+            Console.Clear();
+            Console.WriteLine("=== Ustawienie Limitów na Nieopłacone Kwoty ===");
 
+            List<Customer> customers = LoadCustomers();
+            Console.WriteLine("{0,-5} {1,-20} {2,-30} {3,-15}", "ID", "Imię i nazwisko", "E-mail", "Aktualny Limit");
+            Console.WriteLine(new string('-', 75));
+
+            foreach (var customer in customers)
+            {
+                Console.WriteLine("{0,-5} {1,-20} {2,-30} {3,-15:C}", 
+                    customer.Id, 
+                    $"{customer.FirstName} {customer.LastName}", 
+                    customer.Email ?? "Brak", 
+                    customer.UnpaidLimit);
+            }
+
+            Console.WriteLine("Podaj ID klienta, któremu chcesz ustawić limit (lub naciśnij Enter, aby wrócić): ");
+            string? idInput = Console.ReadLine();
+
+            if (string.IsNullOrWhiteSpace(idInput))
+            {
+                return;
+            }
+
+            if (!int.TryParse(idInput, out int customerId))
+            {
+                Console.WriteLine("Nieprawidłowe ID klienta.");
+                Console.ReadKey();
+                return;
+            }
+
+            Customer selectedCustomer = customers.FirstOrDefault(c => c.Id == customerId);
+
+            if (selectedCustomer == null)
+            {
+                Console.WriteLine("Nie znaleziono klienta o podanym ID.");
+                Console.ReadKey();
+                return;
+            }
+
+            Console.Write($"Podaj nowy limit dla klienta {selectedCustomer.FirstName} {selectedCustomer.LastName}: ");
+            string? limitInput = Console.ReadLine();
+
+            if (!decimal.TryParse(limitInput, out decimal newLimit) || newLimit < 0)
+            {
+                Console.WriteLine("Nieprawidłowy limit.");
+                Console.ReadKey();
+                return;
+            }
+
+            selectedCustomer.UnpaidLimit = newLimit;
+            SaveCustomers(customers);
+
+            Console.WriteLine($"Nowy limit dla klienta {selectedCustomer.FirstName} {selectedCustomer.LastName}: {newLimit:C}");
+            Console.ReadKey();
+        }
+        
         public List<Customer> LoadCustomers()
         {
             if (File.Exists(customerFile))

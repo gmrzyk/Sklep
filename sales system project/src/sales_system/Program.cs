@@ -26,7 +26,9 @@ namespace sales_system
                 Console.WriteLine("3. Utwórz nową sprzedaż");
                 Console.WriteLine("4. Wyświetl raporty sprzedaży");
                 Console.WriteLine("5. Zrealizuj płatność");
-                Console.WriteLine("6. Wyjdź");
+                Console.WriteLine("6. Wyświetl historię zakupów klienta");
+                Console.WriteLine("7. Wyświetl historię sprzedaży w zakresie dat");
+                Console.WriteLine("8. Wyjdź");
                 Console.Write("Wybierz opcję: ");
 
                 string? choice = Console.ReadLine();
@@ -49,6 +51,12 @@ namespace sales_system
                         saleService.ProcessPayment();
                         break;
                     case "6":
+                        saleService.ShowCustomerPurchaseHistory();
+                        break;
+                    case "7" :
+                        saleService.ShowSalesInDateRange();
+                        break;
+                    case "8":
                         exit = true;
                         Console.WriteLine("Zakończenie programu...");
                         break;

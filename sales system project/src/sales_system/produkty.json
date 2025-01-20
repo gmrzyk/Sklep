@@ -13,7 +13,7 @@
     "Price": 1000,
     "Category": "Telefony",
     "Description": "brak",
-    "Stock": 13
+    "Stock": 12
   },
   {
     "Id": 3,
@@ -21,7 +21,7 @@
     "Price": 1500,
     "Category": "Monitory",
     "Description": "brak",
-    "Stock": 7
+    "Stock": 6
   },
   {
     "Id": 4,
