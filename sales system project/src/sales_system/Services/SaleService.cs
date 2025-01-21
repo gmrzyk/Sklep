@@ -291,6 +291,7 @@ namespace sales_system.Services
                 Console.ReadKey();
                 return;
             }
+            
             Console.Clear();
             Console.WriteLine($"Historia zakupów dla: {selectedCustomer.FirstName} {selectedCustomer.LastName}");
             Console.WriteLine("{0,-10} {1,-20} {2,-15} {3,-15}", "Zakup ID", "Data", "Kwota", "Status");
