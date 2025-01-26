@@ -1,15 +1,17 @@
 ﻿using System.Text.Json;
+using sales_system.Interfaces;
 using sales_system.Models;
+using sales_system.Interfaces;
 
 namespace sales_system.Services
 {
-    public class SaleService
+    public class SaleService : ISaleService
     {
         private readonly string salesFile;
-        private readonly CustomerService customerService;
-        private readonly ProductService productService;
+        private readonly ICustomerService customerService;
+        private readonly IProductService productService;
 
-        public SaleService(CustomerService customerService, ProductService productService, string salesFile)
+        public SaleService(ICustomerService customerService, IProductService productService, string salesFile)
         {
             this.customerService = customerService;
             this.productService = productService;

@@ -1,9 +1,11 @@
 ﻿using System.Text.Json;
+using sales_system.Interfaces;
 using sales_system.Models;
+using sales_system.Interfaces;
 
 namespace sales_system.Services
 {
-    public class ProductService
+    public class ProductService : IProductService
     {
         private readonly string productFile;
 
@@ -54,7 +56,7 @@ namespace sales_system.Services
             }
         }
 
-        private void AddProduct()
+        public void AddProduct()
         {
             Console.Clear();
             Console.WriteLine("=== Dodawanie Produktu ===");
@@ -90,7 +92,7 @@ namespace sales_system.Services
             Console.ReadKey();
         }
 
-        private void DisplayProducts()
+        public void DisplayProducts()
         {
             Console.Clear();
             Console.WriteLine("=== Lista Produktów ===");
@@ -110,7 +112,7 @@ namespace sales_system.Services
             Console.ReadKey();
         }
 
-        private void RemoveProduct()
+        public void RemoveProduct()
         {
             Console.Clear();
             Console.WriteLine("=== Usuwanie Produktu ===");
@@ -149,7 +151,7 @@ namespace sales_system.Services
             Console.ReadKey();
         }
 
-        private void UpdateStock()
+        public void UpdateStock()
         {
             Console.Clear();
             Console.WriteLine("=== Zmiana Stanu Magazynowego ===");

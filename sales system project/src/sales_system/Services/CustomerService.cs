@@ -1,9 +1,10 @@
 ﻿using System.Text.Json;
 using sales_system.Models;
+using sales_system.Interfaces;
 
 namespace sales_system.Services
 {
-    public class CustomerService
+    public class CustomerService : ICustomerService
     {
         private readonly string customerFile;
 
@@ -54,7 +55,7 @@ namespace sales_system.Services
             }
         }
 
-        private void AddCustomer()
+        public void AddCustomer()
         {
             Console.Clear();
             Console.WriteLine("=== Dodawanie Klienta ===");
@@ -89,7 +90,7 @@ namespace sales_system.Services
             Console.ReadKey();
         }
 
-        private void DisplayCustomers()
+        public void DisplayCustomers()
         {
             Console.Clear();
             Console.WriteLine("=== Lista Klientów ===");
@@ -116,7 +117,7 @@ namespace sales_system.Services
             Console.ReadKey();
         }
 
-        private void RemoveCustomer()
+        public void RemoveCustomer()
         {
             Console.Clear();
             Console.WriteLine("=== Usuwanie Klienta ===");
@@ -172,6 +173,7 @@ namespace sales_system.Services
                     customer.UnpaidLimit);
             }
 
+            Console.WriteLine();
             Console.WriteLine("Podaj ID klienta, któremu chcesz ustawić limit (lub naciśnij Enter, aby wrócić): ");
             string? idInput = Console.ReadLine();
 

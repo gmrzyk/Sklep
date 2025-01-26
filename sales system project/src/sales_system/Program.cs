@@ -1,4 +1,5 @@
-﻿using sales_system.Services;
+﻿using sales_system.Interfaces;
+using sales_system.Services;
 
 namespace sales_system
 {
@@ -10,11 +11,11 @@ namespace sales_system
             string productFile = Path.Combine(baseDirectory, "..", "..", "..", "Data", "produkty.json");
             string customerFile = Path.Combine(baseDirectory, "..", "..", "..", "Data", "klienci.json");
             string salesFile = Path.Combine(baseDirectory, "..", "..", "..", "Data", "sprzedaze.json");
-
-            var productService = new ProductService(productFile);
-            var customerService = new CustomerService(customerFile);
-            var saleService = new SaleService(customerService, productService, salesFile);
-
+            
+            IProductService productService = new ProductService(productFile);
+            ICustomerService customerService = new CustomerService(customerFile);
+            ISaleService saleService = new SaleService(customerService, productService, salesFile);
+            
             bool exit = false;
 
             while (!exit)
